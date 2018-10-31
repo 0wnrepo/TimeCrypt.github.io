@@ -1,175 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>TimeCrypt</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- Custom styles for this template -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
 
     <!-- nice figures  -->
     <link rel="stylesheet" href="css/font-awesome.css">
 
-    <!--  news ticker -->
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
-    <link rel="stylesheet" href="css/site.css" type="text/css"/>
-    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-    <script src="scripts/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
+  </head>
 
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-         
-         ga('create', 'UA-79132319-2', 'auto');
-         ga('send', 'pageview');
-         
-    </script>
-    
-</head>
-
-<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">TimeCrypt</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#time-series">Time Series</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#how">How?</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#documents">Documents</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#download">Download</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">TimeCrypt</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#how">How</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#pubs">Publications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            </li>
+          </ul>
         </div>
-        <!-- /.container -->
+      </div>
     </nav>
 
-    <!-- Intro Section -->
-    <section id="intro" class="intro-section">
+    <header class="bg-light text-black">
+      <div class="container text-center">
+        <h1>TimeCrypt </h1>
+        <h2>A Scalable Private Time Series Data Store</h2>
+        <p class="lead"><i>The first practical TSDB to support both computation over encrypted time series data 
+			and <br> fine-grained cryptographic access control on queries.</i></p>
+      </div>
+    </header>
+
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="section-title-tc">About TimeCrypt</h2>
+            <p class="lead">TimeCrypt augments time series data stores with encrypted data processing capabilities and features a new encryption-based access control scheme that is additively homomorphic. TimeCrypt is tailored for time series workloads, supports fast statistical queries over large volumes of encrypted time series data, and enables users to cryptographically restrict the scope of queries and data access based on pre-defined access policies.</p>
+            <p class="lead">Example queries over encrypted raw time series data in TimeCrypt:<p>
+            <ul>
+              <li>What was my heart rate in one hour granularity over the last month?</li>
+              <li>How many steps have I done since Tuesday?</li>
+              <li> What was the average and variance of the energy consumption in my household over the last year? </li>
+              <li> Did the server in rack one exceed 70 percent CPU utilization yesterday? </li>
+            </ul>
+            <p class="lead">Examples of access restrictions in TimeCrypt:<p>
+            <ul>
+              <li>Alice is allowed to query my sleep measurements in July.</li>
+              <li>Bob is allowed to query my heart rate from last year but only in one hour granularity.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="section-title-tc">How does TimeCrypt work?</h2>
+            <br><br>
+        	<div class="text-center">
+         		<p><img class="img-fluid" src="images/design.gif"></p>
+         	</div>
+         	 <br><br> <br><br> <br><br>
+         	<div class="text-center">
+         		<p><img class="img-fluid" src="images/writestreams.gif"></p>
+         	</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pubs" class="">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="section-title-tc">Publications</h2>
+            <p class="lead">Coming Soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <center><h1>Coming Soon!</h1>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                </div>
+            	<!-- Lukas -->
+                <div class="col-xs-12 col-sm-6 col-md-4">
+	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+	                    <div class="mainflip">
+	                        <div class="frontside">
+	                            <div class="card">
+	                                <div class="card-body text-center">
+	                                    <p><img class=" img-fluid" src="images/lukas_avatar.jpg" alt="card image"></p>
+	                                    <h4 class="card-title">Lukas Burkhalter</h4>
+	                                    <p class="card-text">Ph.D. Student @ETH</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="backside">
+	                            <div class="card">
+	                                <div class="card-body text-center mt-4">
+	                                    <h4 class="card-title"><a href="https://people.inf.ethz.ch/burlukas/">Lukas Burkhalter</a></h4>
+	                                    <p class="card-text">Lukas Burkhalter is a Ph.D. candidate and research assistant at the Distributed Systems Group at ETH Zurich.</p>
+	                                    <ul class="list-inline">
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://github.com/lubux/">
+	                                                <i class="fa fa-github"></i>
+	                                            </a>
+	                                        </li>
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://ch.linkedin.com/in/lukas-burkhalter-015ab3133">
+	                                                <i class="fa fa-linkedin"></i>
+	                                            </a>
+	                                        </li>
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/lubux86">
+	                                                <i class="fa fa-twitter"></i>
+	                                            </a>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+            	</div>
+            	<!-- Hossein -->
+            	<div class="col-xs-12 col-sm-6 col-md-4">
+	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+	                    <div class="mainflip">
+	                        <div class="frontside">
+	                            <div class="card">
+	                                <div class="card-body text-center">
+	                                    <p><img class=" img-fluid" src="images/hossein_avatar.png" alt="card image"></p>
+	                                    <h4 class="card-title">Hossein Shafagh</h4>
+	                                    <p class="card-text">Researcher @ETH</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="backside">
+	                            <div class="card">
+	                                <div class="card-body text-center mt-4">
+	                                    <h4 class="card-title"><a href="https://people.inf.ethz.ch/mshafagh/">Hossein Shafagh</a></h4>
+	                                    <p class="card-text">Hossein Shafagh is a researcher at the Distributed Systems Group at ETH Zurich.</p>
+	                                    <ul class="list-inline">
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://github.com/hosseinsh/">
+	                                                <i class="fa fa-github"></i>
+	                                            </a>
+	                                        </li>
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/hshafagh">
+	                                                <i class="fa fa-linkedin"></i>
+	                                            </a>
+	                                        </li>
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/hossein_shafagh">
+	                                                <i class="fa fa-twitter"></i>
+	                                            </a>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+            	</div>
+            	<!-- Anwar -->
+            	<div class="col-xs-12 col-sm-6 col-md-4">
+	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+	                    <div class="mainflip">
+	                        <div class="frontside">
+	                            <div class="card">
+	                                <div class="card-body text-center">
+	                                    <p><img class=" img-fluid" src="images/anwar_avatar.png" alt="card image"></p>
+	                                    <h4 class="card-title">Anwar Hithnawi</h4>
+	                                    <p class="card-text">Researcher @UC Berkeley</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="backside">
+	                            <div class="card">
+	                                <div class="card-body text-center mt-4">
+	                                    <h4 class="card-title"><a href="https://people.eecs.berkeley.edu/~hithnawi/">Anwar Hithnawi</a></h4>
+	                                    <p class="card-text">Anwar Hithnawi is a researcher at the NetSys Lab at UC Berkeley, USA.</p>
+	                                    <ul class="list-inline">
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://github.com/Anwarhit/">
+	                                                <i class="fa fa-github"></i>
+	                                            </a>
+	                                        </li>
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/anwarhit/">
+	                                                <i class="fa fa-linkedin"></i>
+	                                            </a>
+	                                        </li>
+	                                        <li class="list-inline-item">
+	                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/anwarhit/">
+	                                                <i class="fa fa-twitter"></i>
+	                                            </a>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+            	</div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; TimeCrypt 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="footer" class="modal-footer">
-        <div align="center">
-            <p>&copy; Copyright TimeCrypt 2018
-            <a target="_blank"  href="https://github.com/hosseinsh/startbootstrap-scrolling-nav">
-                <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-            </a></p>
-        <div>
-    </div>
-
-
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
+    <!-- Custom JavaScript for this theme -->
     <script src="js/scrolling-nav.js"></script>
 
-    <script type="text/javascript">
-        $(function () {
-          $("#mynews").bootstrapNews({
-                newsPerPage: 4,
-                autoplay: false,
-                onToDo: function () {
-                //console.log(this);
-                }
-          });
-        });
-    </script>
+  </body>
 
-</body>
 </html>
