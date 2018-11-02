@@ -39,7 +39,13 @@
               <a class="nav-link js-scroll-trigger" href="#how">How</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#performance">Performance</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#pubs">Publications</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#code">Code</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Team</a>
@@ -82,19 +88,55 @@
       </div>
     </section>
 
-    <section id="how" class="bg-light">
+    <section id="how" class="">
       <div class="container">
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h2 class="section-title-tc">How does TimeCrypt work?</h2>
             <br><br>
+            <p class="lead">TimeCrypt introduces a <i>Client Module</i>, which encrypts and compresses data before uploading it to the TimeCrypt server. Despite the encryption, a data <i>Reader</i>, which is in possession of the corresponding secrets, can query for statistical information and raw data.</p>
+            <p class="lead">
+            <b>Only encrypted data is stored on the remote service without loosing the analytics functionality on the client side.<b>
+            </p>
         	<div class="text-center">
          		<p><img class="img-fluid" src="images/design.gif"></p>
          	</div>
-         	 <br><br> <br><br> <br><br>
+         	<br><br> <br><br> <br><br>
+
+         	<p class="lead">
+         	To handle the heavy write load of time series workloads, TimeCrypt <b>batches</b> data in fixed time windows on the client side. The client <b>encrypts</b> and complements the chunk with <b>statistical metadata</b>. TimeCrypt's client engine encrypts the metadata with an efficient encryption scheme, which allows for <b>encrypted data processing</b> and <b>access control</b>.
+         	</p>
+
+         	<p class="lead">
+         	To overcome the challenge of handling <b>low-latency statistical queries over millions of datapoints</b>, TimeCrypt employs an <b>encrypted aggregation index</b> on the server side with the metadata as its building blocks. 
+         	</p>
          	<div class="text-center">
          		<p><img class="img-fluid" src="images/writestreams.gif"></p>
          	</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="performance" class="">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="section-title-tc">Performance</h2>
+            <br><br>
+            <h4>Troughput Writes and Reads</h2>
+            <br><br>
+            <div class="text-center">
+         		<p><img class="img-fluid" src="images/performance-tp.gif"></p>
+         	</div>
+         	<br><br> <br><br> <br><br>
+
+         	<h4>Latency Health Dashboard Queries</h2>
+         	<br><br>
+         	<div class="text-center">
+         		<p><img class="img-fluid" src="images/perfomance-query.gif"></p>
+         	</div>
+            
           </div>
         </div>
       </div>
@@ -111,9 +153,24 @@
       </div>
     </section>
 
+    <section id="code" class="">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="section-title-tc">Code</h2>
+            <p class="lead">Coming Soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="team" class="team-section">
         <div class="container">
             <div class="row">
+            	<div class="col-lg-10 mx-auto">
+            	<h2 class="section-title-tc">Team</h2>
+            	<br><br>
+            	<div class="row">
             	<!-- Lukas -->
                 <div class="col-xs-12 col-sm-6 col-md-4">
 	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -237,8 +294,51 @@
 	                    </div>
 	                </div>
             	</div>
+            	<!-- Sylvia -->
+            	<div class="col-xs-12 col-sm-6 col-md-4">
+	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+	                    <div class="mainflip">
+	                        <div class="frontside">
+	                            <div class="card">
+	                                <div class="card-body text-center">
+	                                    <p><img class=" img-fluid" src="images/white.png" alt="card image"></p>
+	                                    <h4 class="card-title">Sylvia Ratnasamy</h4>
+	                                    <p class="card-text">Associate Professor @UC Berkeley</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="backside">
+	                            <div class="card">
+	                                <div class="card-body text-center mt-4">
+	                                    <h4 class="card-title"><a href="https://people.eecs.berkeley.edu/~sylvia/">Sylvia Ratnasamy</a></h4>
+	                                    <p class="card-text">Sylvia Ratnasamy is a Associate Professor at the NetSys Lab at UC Berkeley, USA.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+            	</div>
+            	</div>
+            	</div>
             </div>
         </div>
+    </section>
+
+	<section id="students" class="">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h2 class="section-title-tc">Students</h2>
+            <br><br>
+        	<p class="lead">Students, which contributed to TimeCrypt.<p>
+            <ul>
+              <li> <a href="http://www.kaporin.com">Misels Kaporins</a></li>
+              <li> <a href="https://www.linkedin.com/in/jason-friedman-72b83a151">Jason Friedman</a></li>
+              <li> Simon Peyer </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
