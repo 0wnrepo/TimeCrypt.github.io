@@ -94,25 +94,33 @@
           <div class="col-lg-10 mx-auto">
             <h2 class="section-title-tc">How does TimeCrypt work?</h2>
             <br><br>
-            <p class="lead">TimeCrypt introduces a <i>Client Module</i>, which encrypts and compresses data before uploading it to the TimeCrypt server. Despite the encryption, a data <i>Reader</i>, which is in possession of the corresponding secrets, can query for statistical information and raw data.</p>
+            <h4>In a nutshel</h4>
             <p class="lead">
-            <b>Only encrypted data is stored on the remote service without loosing the analytics functionality on the client side.<b>
+            	TimeCrypt introduces a <i>Client Module</i>, which encrypts and compresses data before uploading it to the TimeCrypt server. Despite the encryption, a data <i>Reader</i>, which is in possession of the corresponding secrets, can query for statistical information and raw data.</p>
+            <p class="lead">
+            	<b>Only encrypted data is stored on the remote service without loosing the analytics functionality on the client side.<b>
             </p>
         	<div class="text-center">
          		<p><img class="img-fluid" src="images/design.gif"></p>
          	</div>
          	<br><br> <br><br> <br><br>
 
+         	<h4>Scalability for Time Series Workloads</h4>
          	<p class="lead">
-         	To handle the heavy write load of time series workloads, TimeCrypt <b>batches</b> data in fixed time windows on the client side. The client <b>encrypts</b> and complements the chunk with <b>statistical metadata</b>. TimeCrypt's client engine encrypts the metadata with an efficient encryption scheme, which allows for <b>encrypted data processing</b> and <b>access control</b>.
+         		To handle the heavy write load of time series workloads, TimeCrypt <b>batches</b> data in fixed time windows on the client side. The client <b>encrypts</b> and complements the chunk with <b>statistical metadata</b>. TimeCrypt's client engine encrypts the metadata with an efficient encryption scheme, which allows for <b>encrypted data processing</b> and <b>access control</b>.
          	</p>
 
          	<p class="lead">
-         	To overcome the challenge of handling <b>low-latency statistical queries over millions of datapoints</b>, TimeCrypt employs an <b>encrypted aggregation index</b> on the server side with the metadata as its building blocks. 
+         		To overcome the challenge of handling <b>low-latency statistical queries over millions of datapoints</b>, TimeCrypt employs an <b>encrypted aggregation index</b> on the server side with the metadata as its building blocks. 
          	</p>
          	<div class="text-center">
          		<p><img class="img-fluid" src="images/writestreams.gif"></p>
          	</div>
+
+         	<h4>Access Control</h4>
+         	<p class="lead">
+         		...
+         	</p>
           </div>
         </div>
       </div>
@@ -124,13 +132,12 @@
           <div class="col-lg-10 mx-auto">
             <h2 class="section-title-tc">Performance</h2>
             <p class="lead">
-            With data ingest at 2.4 million data points per second, TimeCrypt experiences a <b>slowdown of around 1.8%</b> for both encrypted data ingest and statistical queries compared to plaintext data.
+            	With data ingest at 2.4 million data points per second, TimeCrypt experiences a <b>slowdown of around 1.8%</b> for both encrypted data ingest and statistical queries compared to plaintext data.
             </p>
             <br>
             <h4>Troughput Writes and Statistical Queries</h4>
-            <br>
             <p class="lead">
-            Heavy load experiment with a read-write ratio of 4 to 1. The load generator creates 1200  streams with 100 clients, corresponding to 48579 50hz streams in our health app.
+            	Heavy load experiment with a read-write ratio of 4 to 1. The load generator creates 1200  streams with 100 clients, corresponding to 48579 50hz streams in our health app.
             </p>
             <br>
             <div class="text-center">
@@ -139,7 +146,6 @@
          	<br><br> <br><br> <br><br>
 
          	<h4>Latency Health Dashboard Queries</h4>
-         	<br>
          	<p class="lead">
          		Latency for statistical average range queries over one month data (50hz heart rate) in our health app (121M records). The x-axis shows the granularity of the requested data from one minute to one month.
          	</p>
