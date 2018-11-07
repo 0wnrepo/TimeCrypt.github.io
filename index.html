@@ -100,20 +100,21 @@
           <div class="col-lg-10 mx-auto">
             <h2 class="section-title-tc">How does TimeCrypt work?</h2> -->
             <br><br>
-            <h4>TimeCrypt in a nutshel</h4>
+  <!--          <h4>TimeCrypt in a nutshel</h4>
             <p class="lead">
             	TimeCrypt introduces a <i>Client Module</i>, which encrypts and compresses data before uploading it to the TimeCrypt server. Despite the encryption, a data <i>Reader</i>, which is in possession of the corresponding secrets, can query for statistical information and raw data.</p>
-            <p class="lead">
-            	<b>Only encrypted data is stored on the remote service without loosing the analytics functionality on the client side.<b>
-            </p>
+            <p class="lead">  -->
+              </p>
+            <h5>	 In <strong>TimeCrypt</strong> only encrypted data is stored on the remote server,  yet without losing the analytics functionality on the client side. </h5>
+
         	<div class="text-center">
          		<p><img class="img-fluid" src="images/design.gif"></p>
          	</div>
-         	<br><br> <br><br> <br><br>
+         	<br><br> <br>
 
          	<h4>Scalability for Time Series Workloads</h4>
          	<p class="lead">
-         		To handle the heavy write load of time series workloads, TimeCrypt <b>batches</b> data in fixed time windows on the client side. The client <b>encrypts</b> and complements the chunk with <b>statistical metadata</b>. TimeCrypt's client engine encrypts the metadata with an efficient encryption scheme, which allows for <b>encrypted data processing</b> and <b>access control</b>.
+         		To handle the heavy write load of time series workloads, TimeCrypt <b>batches</b> data in fixed time windows on the client side. The client <b>encrypts</b> and complements the chunk with <b>statistical metadata</b>. TimeCrypt's client engine encrypts the metadata with Homomorphic Encryption-based Access Control (HEAC) scheme. HEAC is a new efficient encryption scheme, which allows for <b>encrypted data processing</b> and <b>access control </b> simultaneously.
          	</p>
 
          	<p class="lead">
