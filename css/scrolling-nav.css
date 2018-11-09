@@ -30,6 +30,11 @@ section {
   padding: 50px 0;
 }
 
+section.about-section .img-wide  {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 section.section-title-tc {
     margin-bottom: 50px;
 }
@@ -138,6 +143,18 @@ a:hover, a:focus, a:active {
 .backside .card {
     min-height: 280px;
 }
+
+
+@media(min-width:960px) {
+    .frontside .card,
+    .backside .card {
+        min-height: 280px;
+        min-width: 205px;
+        max-width: 205px;
+    }
+}
+
+
 
 .backside .card a {
     font-size: 18px;
