@@ -1,396 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>TimeCrypt</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-
-    <!-- nice figures  -->
-    <link rel="stylesheet" href="css/font-awesome.css">
-
-     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110417665-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-110417665-2');
-    </script>
-
-  </head>
-
-  <body id="page-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">TimeCrypt</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#pubs">Papers</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#code">Code</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <header class="bg-light text-black">
-      <div class="container text-center">
-        <h1>TimeCrypt </h1>
-        <h2>A Scalable Private Time Series Data Store</h2>
-        <p class="lead"><i>The first practical TSDB to support both computation over encrypted time series data
-			and <br> fine-grained cryptographic access control on queries.</i></p>
-      </div>
-    </header>
-
-
-    <section id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h2 class="section-title-tc">About</h2>
-            <p class="lead">  Recent years have seen explosive growth in devices and services that automatically collect, aggregate, and analyze time series data, and this trend is only expected to accelerate with the proliferation of low-cost sensors and the adoption of IoT. However, with this growth has come mounting concern over protecting this data and the privacy of users. A key challenge in ensuring data privacy is that the need for privacy co-exists with the desire to extract value from the data and extracting value often implies granting users and third-party services access to the data.</p> <br><br>
-
-            <h4>The System</h4>
-            <p class="lead">  <strong>TimeCrypt</strong> is the first system that augments time series data stores with efficient and privacy-preserving processing of time series data, while providing cryptographic means to restrict the query scope based on the data owners policies. Particularly, we introduce a new encryption-based access control scheme that is additively homomorphic. <strong>TimeCrypt</strong> is tailored for time series workloads, supports fast statistical queries over large volumes of encrypted time series data, and enables users to cryptographically restrict the scope of queries and data access based on pre-defined access policies. </p> 
-
-<!--
-            <p class="lead">Example queries over encrypted raw time series data in TimeCrypt:<p>
-            <ul>
-              <li>What was my heart rate in one hour granularity over the last month?</li>
-              <li>How many steps have I done since Tuesday?</li>
-              <li> What was the average and variance of the energy consumption in my household over the last year? </li>
-              <li> Did the server in rack one exceed 70 percent CPU utilization yesterday? </li>
-            </ul>
-            <p class="lead">Examples of access restrictions in TimeCrypt:<p>
-            <ul>
-              <li>Alice is allowed to query my sleep measurements in July.</li>
-              <li>Bob is allowed to query my heart rate from last year but only in one hour granularity.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how" class="">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h2 class="section-title-tc">How does TimeCrypt work?</h2> -->
-            <br><br>
-  <!--          <h4>TimeCrypt in a nutshel</h4>
-            <p class="lead">
-            	TimeCrypt introduces a <i>Client Module</i>, which encrypts and compresses data before uploading it to the TimeCrypt server. Despite the encryption, a data <i>Reader</i>, which is in possession of the corresponding secrets, can query for statistical information and raw data.</p>
-            <p class="lead">  -->
-              </p>
-            <h5>	 In <strong>TimeCrypt</strong> only encrypted data is stored on the remote server,  yet without losing the analytics functionality on the client side. </h5>
-
-        	<div class="text-center">
-         		<p><img class="img-fluid" src="images/design.gif"></p>
-         	</div>
-         	<br><br> <br>
-
-         	<h4>Scalability for Time Series Workloads</h4>
-         	<p class="lead">
-         		To handle the heavy write load of time series workloads, TimeCrypt <b>batches</b> data in fixed time windows on the client side. The client <b>encrypts</b> and complements the chunk with <b>statistical metadata</b>. TimeCrypt's client engine encrypts the metadata with a Homomorphic Encryption-based Access Control (HEAC) scheme. HEAC is a new efficient encryption scheme, which allows for <b>encrypted data processing</b> and <b>access control </b> simultaneously.
-         	</p>
-
-         	<p class="lead">
-         		To overcome the challenge of handling <b>low-latency statistical queries over millions of datapoints</b>, TimeCrypt employs an <b>encrypted aggregation index</b> on the server side with the metadata as its building blocks.
-         	</p>
-         	<div class="text-center">
-         		<p><img class="img-fluid" src="images/writestreams.gif"></p>
-         	</div>
-
-         	<!--<h4>Access Control</h4>
-         	<p class="lead">
-         		...
-         	</p>-->
-          </div>
-        </div>
-      </div>
-    </section>
-	<!--
-    <section id="performance" class="">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h2 class="section-title-tc">Performance</h2>
-            <p class="lead">
-            	With data ingest at 2.4 million data points per second, TimeCrypt experiences a <b>slowdown of around 1.8%</b> for both encrypted data ingest and statistical queries compared to plaintext data.
-            </p>
-            <br>
-            <h4>Throughput Writes and Statistical Queries</h4>
-            <p class="lead">
-            	Heavy load experiment with a read-write ratio of 4 to 1. The load generator creates 1200  streams with 100 clients, corresponding to 48579 50hz streams in our health app.
-            </p>
-            <br>
-            <div class="text-center">
-         		<p><img class="img-fluid" src="images/performance-tp.gif"></p>
-         	</div>
-         	<br><br> <br><br> <br><br>
-
-         	<h4>Latency Health Dashboard Queries</h4>
-         	<p class="lead">
-         		Latency for statistical average range queries over one month data (50hz heart rate) in our health app (121M records). The x-axis shows the granularity of the requested data from one minute to one month.
-         	</p>
-         	<br>
-         	<div class="text-center">
-         		<p><img class="img-fluid" src="images/perfomance-query.gif"></p>
-         	</div>
-
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <section id="pubs" class="">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h2 class="section-title-tc">Papers</h2>
-            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-            <a href="http://arxiv.org/abs/1811.03457"><b>TimeCrypt: A Scalable Private Time Series Data Store.<br></a>
-             <h6> Lukas Burkhalter, Hossein Shafagh, Anwar Hithnawi, Sylvia Ratnasamy <br>
-             <i>In ArXiv, arXiv:1811.03457 [cs.CR], November 2018</i></h6><br>
-
-            </li>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="code" class="">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h2 class="section-title-tc">TimeCrypt Code</h2>
-            <p class="lead">Coming Soon.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="team" class="team-section">
-        <div class="container">
-            <div class="row">
-            	<div class="col-lg-10 mx-auto">
-            	<h2 class="section-title-tc">Team</h2>
-
-            	<div class="row">
-            	<!-- Lukas -->
-                <div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-	                    <div class="mainflip">
-	                        <div class="frontside">
-	                            <div class="card">
-	                                <div class="card-body text-center">
-	                                    <p><img class=" img-fluid" src="images/lukas_avatar.jpg" alt="card image"></p>
-	                                    <h4 class="card-title">Lukas Burkhalter</h4>
-	                                    <p class="card-text">Ph.D. Student @ ETH</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="backside">
-	                            <div class="card">
-	                                <div class="card-body text-center mt-3">
-	                                    <h4 class="card-title"><a href="https://people.inf.ethz.ch/burlukas/">Lukas Burkhalter</a></h4>
-	                                    <p class="card-text">Lukas Burkhalter is a Ph.D. candidate and research assistant at the Distributed Systems Group at ETH Zurich.</p>
-	                                    <ul class="list-inline">
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://github.com/lubux/">
-	                                                <i class="fa fa-github"></i>
-	                                            </a>
-	                                        </li>
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://ch.linkedin.com/in/lukas-burkhalter-015ab3133">
-	                                                <i class="fa fa-linkedin"></i>
-	                                            </a>
-	                                        </li>
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/lubux86">
-	                                                <i class="fa fa-twitter"></i>
-	                                            </a>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-            	</div>
-            	<!-- Hossein -->
-            	<div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-	                    <div class="mainflip">
-	                        <div class="frontside">
-	                            <div class="card">
-	                                <div class="card-body text-center">
-	                                    <p><img class=" img-fluid" src="images/hossein_avatar.png" alt="card image"></p>
-	                                    <h4 class="card-title">Hossein Shafagh</h4>
-	                                    <p class="card-text">Researcher @ ETH</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="backside">
-	                            <div class="card">
-	                                <div class="card-body text-center mt-3">
-	                                    <h4 class="card-title"><a href="https://people.inf.ethz.ch/mshafagh/">Hossein Shafagh</a></h4>
-	                                    <p class="card-text">Hossein Shafagh is a researcher at the Distributed Systems Group at ETH Zurich.</p>
-	                                    <ul class="list-inline">
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://github.com/hosseinsh/">
-	                                                <i class="fa fa-github"></i>
-	                                            </a>
-	                                        </li>
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/hshafagh">
-	                                                <i class="fa fa-linkedin"></i>
-	                                            </a>
-	                                        </li>
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/hossein_shafagh">
-	                                                <i class="fa fa-twitter"></i>
-	                                            </a>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-            	</div>
-            	<!-- Anwar -->
-            	<div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-	                    <div class="mainflip">
-	                        <div class="frontside">
-	                            <div class="card">
-	                                <div class="card-body text-center">
-	                                    <p><img class=" img-fluid" src="images/anwar_avatar.png" alt="card image"></p>
-	                                    <h4 class="card-title">Anwar Hithnawi</h4> <br>
-	                                    <p class="card-text">Researcher @ UCB </p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="backside">
-	                            <div class="card">
-	                                <div class="card-body text-center mt-3">
-	                                    <h4 class="card-title"><a href="https://people.eecs.berkeley.edu/~hithnawi/">Anwar Hithnawi</a></h4>
-	                                    <p class="card-text">Anwar Hithnawi is a researcher at the NetSys Lab at UC Berkeley, USA.</p>
-	                                    <ul class="list-inline">
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://github.com/Anwarhit/">
-	                                                <i class="fa fa-github"></i>
-	                                            </a>
-	                                        </li>
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/anwarhit/">
-	                                                <i class="fa fa-linkedin"></i>
-	                                            </a>
-	                                        </li>
-	                                        <li class="list-inline-item">
-	                                            <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/anwarhit/">
-	                                                <i class="fa fa-twitter"></i>
-	                                            </a>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-            	</div>
-            	<!-- Sylvia -->
-            	<div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-	                    <div class="mainflip">
-	                        <div class="frontside">
-	                            <div class="card">
-	                                <div class="card-body text-center">
-	                                    <p><img class=" img-fluid" src="images/ratnasamy_avator.jpg" alt="card image"></p>
-	                                    <h4 class="card-title">Sylvia Ratnasamy</h4>
-	                                    <p class="card-text"> Professor @ UCB </p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                        <div class="backside">
-	                            <div class="card">
-	                                <div class="card-body text-center mt-3">
-	                                    <h4 class="card-title"><a href="https://people.eecs.berkeley.edu/~sylvia/">Sylvia Ratnasamy</a></h4>
-	                                    <p class="card-text">Sylvia Ratnasamy is an Associate Professor at the NetSys Lab at UC Berkeley, USA.</p>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-            	</div>
-            	</div>
-            	</div>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>TimeCrypt</title>
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <!-- nice figures  -->
+      <link rel="stylesheet" href="css/font-awesome.css">
+      <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110417665-2"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'UA-110417665-2');
+      </script>
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">TimeCrypt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#pubs">Papers</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#code">Code</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                  </li>
+               </ul>
             </div>
-        </div>
-    </section>
-
-	<section id="students" class="">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h2 class="section-title-tc">Students</h2>
-            <br>
-            <ul>
-              <li> <a href="http://www.kaporin.com">Michel Kaporin</a></li>
-              <li> <a href="https://www.linkedin.com/in/jason-friedman-72b83a151">Jason Friedman</a></li>
-              <li> Simon Peyer </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; TimeCrypt 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
-
-
-  </body>
-
+         </div>
+      </nav>
+      <header class="bg-light text-black">
+         <div class="container text-center">
+            <h1>TimeCrypt </h1>
+            <h2>A Scalable Private Time Series Data Store</h2>
+            <p class="lead"><i>The first practical TSDB to support both computation over encrypted time series data
+               and <br> fine-grained cryptographic access control on queries.</i>
+            </p>
+         </div>
+      </header>
+      <section id="about">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">About</h2>
+                  <p class="lead">  Recent years have seen explosive growth in devices and services that automatically collect, aggregate, and analyze time series data, and this trend is only expected to accelerate with the proliferation of low-cost sensors and the adoption of IoT. However, with this growth has come mounting concern over protecting this data and the privacy of users. A key challenge in ensuring data privacy is that the need for privacy co-exists with the desire to extract value from the data and extracting value often implies granting users and third-party services access to the data.</p>
+                  <br><br>
+                  <h4>The System</h4>
+                  <p class="lead">  <strong>TimeCrypt</strong> is the first system that augments time series data stores with efficient and privacy-preserving processing of time series data, while providing cryptographic means to restrict the query scope based on the data owners policies. Particularly, we introduce a new encryption-based access control scheme that is additively homomorphic. <strong>TimeCrypt</strong> is tailored for time series workloads, supports fast statistical queries over large volumes of encrypted time series data, and enables users to cryptographically restrict the scope of queries and data access based on pre-defined access policies. </p>
+                  <p class="lead">Example queries over encrypted raw time series data in TimeCrypt
+                  <p>
+                  <ul>
+                     <li>What was my heart rate in one hour granularity over the last month?</li>
+                     <li>How many steps have I done since Tuesday?</li>
+                     <li> What was the average and variance of the energy consumption in my household over the last year? </li>
+                     <li> Did the server in rack one exceed 70 percent CPU utilization yesterday? </li>
+                  </ul>
+                  <p class="lead">Examples of access restrictions in TimeCrypt
+                  <p>
+                  <ul>
+                     <li>Alice is allowed to query my sleep measurements in July.</li>
+                     <li>Bob is allowed to query my heart rate from last year but only in one hour granularity.</li>
+                  </ul>
+                  <!--
+                     <p class="lead">Example queries over encrypted raw time series data in TimeCrypt:<p>
+                     <ul>
+                       <li>What was my heart rate in one hour granularity over the last month?</li>
+                       <li>How many steps have I done since Tuesday?</li>
+                       <li> What was the average and variance of the energy consumption in my household over the last year? </li>
+                       <li> Did the server in rack one exceed 70 percent CPU utilization yesterday? </li>
+                     </ul>
+                     <p class="lead">Examples of access restrictions in TimeCrypt:<p>
+                     <ul>
+                       <li>Alice is allowed to query my sleep measurements in July.</li>
+                       <li>Bob is allowed to query my heart rate from last year but only in one hour granularity.</li>
+                     </ul>
+                     </div>
+                     </div>
+                     </div>
+                     </section>
+                     
+                     <section id="how" class="">
+                     <div class="container">
+                     <div class="row">
+                     <div class="col-lg-10 mx-auto">
+                     <h2 class="section-title-tc">How does TimeCrypt work?</h2> -->
+                  <br><br>
+                  <!--          <h4>TimeCrypt in a nutshel</h4>
+                     <p class="lead">
+                      TimeCrypt introduces a <i>Client Module</i>, which encrypts and compresses data before uploading it to the TimeCrypt server. Despite the encryption, a data <i>Reader</i>, which is in possession of the corresponding secrets, can query for statistical information and raw data.</p>
+                     <p class="lead">  -->
+                  </p>
+                  <h5>   In <strong>TimeCrypt</strong> only encrypted data is stored on the remote server,  yet without losing the analytics functionality on the client side. </h5>
+                  <div class="text-center">
+                     <p><img class="img-fluid" src="images/design.gif"></p>
+                  </div>
+                  <br><br> <br>
+                  <h4>Scalability for Time Series Workloads</h4>
+                  <p class="lead">
+                     To handle the heavy write load of time series workloads, TimeCrypt <b>batches</b> data in fixed time windows on the client side. The client <b>encrypts</b> and complements the chunk with <b>statistical metadata</b>. TimeCrypt's client engine encrypts the metadata with a Homomorphic Encryption-based Access Control (HEAC) scheme. HEAC is a new efficient encryption scheme, which allows for <b>encrypted data processing</b> and <b>access control </b> simultaneously.
+                  </p>
+                  <p class="lead">
+                     To overcome the challenge of handling <b>low-latency statistical queries over millions of datapoints</b>, TimeCrypt employs an <b>encrypted aggregation index</b> on the server side with the metadata as its building blocks.
+                  </p>
+                  <div class="text-center">
+                     <p><img class="img-fluid" src="images/writestreams.gif"></p>
+                  </div>
+                  <!--<h4>Access Control</h4>
+                     <p class="lead">
+                      ...
+                     </p>-->
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--
+         <section id="performance" class="">
+           <div class="container">
+             <div class="row">
+               <div class="col-lg-10 mx-auto">
+                 <h2 class="section-title-tc">Performance</h2>
+                 <p class="lead">
+                  With data ingest at 2.4 million data points per second, TimeCrypt experiences a <b>slowdown of around 1.8%</b> for both encrypted data ingest and statistical queries compared to plaintext data.
+                 </p>
+                 <br>
+                 <h4>Throughput Writes and Statistical Queries</h4>
+                 <p class="lead">
+                  Heavy load experiment with a read-write ratio of 4 to 1. The load generator creates 1200  streams with 100 clients, corresponding to 48579 50hz streams in our health app.
+                 </p>
+                 <br>
+                 <div class="text-center">
+                  <p><img class="img-fluid" src="images/performance-tp.gif"></p>
+                </div>
+                <br><br> <br><br> <br><br>
+         
+                <h4>Latency Health Dashboard Queries</h4>
+                <p class="lead">
+                  Latency for statistical average range queries over one month data (50hz heart rate) in our health app (121M records). The x-axis shows the granularity of the requested data from one minute to one month.
+                </p>
+                <br>
+                <div class="text-center">
+                  <p><img class="img-fluid" src="images/perfomance-query.gif"></p>
+                </div>
+         
+               </div>
+             </div>
+           </div>
+         </section> -->
+      <section id="pubs" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Papers</h2>
+                  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                  <a href="http://arxiv.org/abs/1811.03457"><b>TimeCrypt: A Scalable Private Time Series Data Store.<br></a>
+                  <h6> Lukas Burkhalter, Hossein Shafagh, Anwar Hithnawi, Sylvia Ratnasamy <br>
+                     <i>In ArXiv, arXiv:1811.03457 [cs.CR], November 2018</i>
+                  </h6>
+                  <br>
+                  </li>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="code" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">TimeCrypt Code</h2>
+                  <p class="lead">Coming Soon.</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="team" class="team-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Team</h2>
+                  <div class="row">
+                     <!-- Lukas -->
+                     <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                           <div class="mainflip">
+                              <div class="frontside">
+                                 <div class="card">
+                                    <div class="card-body text-center">
+                                       <p><img class=" img-fluid" src="images/lukas_avatar.jpg" alt="card image"></p>
+                                       <h4 class="card-title">Lukas Burkhalter</h4>
+                                       <p class="card-text">Ph.D. Student @ ETH</p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="backside">
+                                 <div class="card">
+                                    <div class="card-body text-center mt-3">
+                                       <h4 class="card-title"><a href="https://people.inf.ethz.ch/burlukas/">Lukas Burkhalter</a></h4>
+                                       <p class="card-text">Lukas Burkhalter is a Ph.D. candidate and research assistant at the Distributed Systems Group at ETH Zurich.</p>
+                                       <ul class="list-inline">
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://github.com/lubux/">
+                                             <i class="fa fa-github"></i>
+                                             </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://ch.linkedin.com/in/lukas-burkhalter-015ab3133">
+                                             <i class="fa fa-linkedin"></i>
+                                             </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/lubux86">
+                                             <i class="fa fa-twitter"></i>
+                                             </a>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Hossein -->
+                     <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                           <div class="mainflip">
+                              <div class="frontside">
+                                 <div class="card">
+                                    <div class="card-body text-center">
+                                       <p><img class=" img-fluid" src="images/hossein_avatar.png" alt="card image"></p>
+                                       <h4 class="card-title">Hossein Shafagh</h4>
+                                       <p class="card-text">Researcher @ ETH</p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="backside">
+                                 <div class="card">
+                                    <div class="card-body text-center mt-3">
+                                       <h4 class="card-title"><a href="https://people.inf.ethz.ch/mshafagh/">Hossein Shafagh</a></h4>
+                                       <p class="card-text">Hossein Shafagh is a researcher at the Distributed Systems Group at ETH Zurich.</p>
+                                       <ul class="list-inline">
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://github.com/hosseinsh/">
+                                             <i class="fa fa-github"></i>
+                                             </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/hshafagh">
+                                             <i class="fa fa-linkedin"></i>
+                                             </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/hossein_shafagh">
+                                             <i class="fa fa-twitter"></i>
+                                             </a>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Anwar -->
+                     <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                           <div class="mainflip">
+                              <div class="frontside">
+                                 <div class="card">
+                                    <div class="card-body text-center">
+                                       <p><img class=" img-fluid" src="images/anwar_avatar.png" alt="card image"></p>
+                                       <h4 class="card-title">Anwar Hithnawi</h4>
+                                       <br>
+                                       <p class="card-text">Researcher @ UCB </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="backside">
+                                 <div class="card">
+                                    <div class="card-body text-center mt-3">
+                                       <h4 class="card-title"><a href="https://people.eecs.berkeley.edu/~hithnawi/">Anwar Hithnawi</a></h4>
+                                       <p class="card-text">Anwar Hithnawi is a researcher at the NetSys Lab at UC Berkeley, USA.</p>
+                                       <ul class="list-inline">
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://github.com/Anwarhit/">
+                                             <i class="fa fa-github"></i>
+                                             </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/anwarhit/">
+                                             <i class="fa fa-linkedin"></i>
+                                             </a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                             <a class="social-icon text-xs-center" target="_blank" href="https://twitter.com/anwarhit/">
+                                             <i class="fa fa-twitter"></i>
+                                             </a>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Sylvia -->
+                     <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                           <div class="mainflip">
+                              <div class="frontside">
+                                 <div class="card">
+                                    <div class="card-body text-center">
+                                       <p><img class=" img-fluid" src="images/ratnasamy_avator.jpg" alt="card image"></p>
+                                       <h4 class="card-title">Sylvia Ratnasamy</h4>
+                                       <p class="card-text"> Professor @ UCB </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="backside">
+                                 <div class="card">
+                                    <div class="card-body text-center mt-3">
+                                       <h4 class="card-title"><a href="https://people.eecs.berkeley.edu/~sylvia/">Sylvia Ratnasamy</a></h4>
+                                       <p class="card-text">Sylvia Ratnasamy is an Associate Professor at the NetSys Lab at UC Berkeley, USA.</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="students" class="">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-10 mx-auto">
+                  <h2 class="section-title-tc">Students</h2>
+                  <br>
+                  <ul>
+                     <li> <a href="http://www.kaporin.com">Michel Kaporin</a></li>
+                     <li> <a href="https://www.linkedin.com/in/jason-friedman-72b83a151">Jason Friedman</a></li>
+                     <li> Simon Peyer </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-5 bg-dark">
+         <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; TimeCrypt 2018</p>
+         </div>
+         <!-- /.container -->
+      </footer>
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Custom JavaScript for this theme -->
+      <script src="js/scrolling-nav.js"></script>
+   </body>
 </html>
